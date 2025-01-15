@@ -13,7 +13,9 @@
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
-    font-family: "Quicksand", sans-serif;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 900;
+    
 }
 
 .slider {
@@ -231,107 +233,6 @@ header .menu a:hover i {
     /* Mueve el ícono hacia la izquierda */
 }
 
-
-.playas {
-    display: flex;
-    background-color: var(--tonoFuerte);
-    flex-direction: column;
-    justify-content: center;
-    width: 1519px;
-    height: auto;
-    color: white;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.playas h1,
-.playas-resumen {
-    text-align: center;
-}
-
-.playas .info-playas {
-    position: relative;
-    margin-top: 30px;
-}
-
-.playas .info-playas .playa {
-    transition: all .3s ease;
-    overflow: hidden;
-    max-height: max-content;
-    position: relative;
-    background-color: rgba(246, 246, 246, 0.555);
-    padding: 10px 20px;
-    margin: 20px;
-    border-radius: 10px;
-    border: 2px solid rgba(246, 246, 246, 0.555);
-}
-
-.playas .info-playas .playa .expandido {
-    max-height: 500px;
-    /* Altura suficiente para el contenido expandido */
-    padding: 20px;
-    /* Restaurar el padding al expandirse */
-}
-
-.playas .info-playas .playa::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    border-radius: 10px;
-}
-
-.playas .info-playas .playa>* {
-    position: relative;
-    z-index: 2;
-}
-
-.playas .info-playas .playa:nth-child(1) {
-    background-image: url(../img/Cabañas/cabaña-vida-bosques.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.playas .info-playas .playa:nth-child(2) {
-    background-image: url(../img/Cabañas/cabaña-abuelos.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.playas .info-playas .playa:nth-child(3) {
-    background-image: url(../img/Cabañas/cabaña-vip.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.playas .info-playas .playa:nth-child(4) {
-    background-image: url(../img/Cabañas/cabaña-asis.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.playas .info-playas .playa:nth-child(5) {
-    background-image: url(../img/Cabañas/cabaña-troje.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.playa:hover {
-    transform: scale(1.010);
-}
-
-.playa:not(:hover) {
-    filter: brightness(0.5);
-}
-
-.resumen {
-    margin-top: 20px;
-}
-
 .swiper {
     margin-top: 40px;
 }
@@ -419,14 +320,239 @@ header .menu a:hover i {
     transform: scale(1.03);
 }
 
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 body {
     background: linear-gradient(180deg,
             rgba(204, 204, 204, 1) 0%,
             rgba(238, 238, 238, 1) 50%,
             rgba(204, 204, 204, 1) 100%);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .container {
     max-width: 1140px;
     margin: 0 auto;
+}
+
+.proposito, .ventajas {
+    padding: 30px 20px;
+    align-items: center;
+    margin-left: 190px;
+    margin-right: 190px;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    color: #333;
+}
+
+.proposito h2, .ventajas h2 {
+    font-size: 2.5rem;
+    color: #c3912d;
+    margin-bottom: 20px;
+}
+
+.proposito p, .ventajas p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.testimonios {
+    padding: 30px 20px;
+    align-items: center;
+    margin-left: 190px;
+    margin-right: 190px;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    color: #333;
+}
+
+.testimonios h2 {
+    font-size: 2.5rem;
+    color: #c3912d;
+    margin-bottom: 20px;
+}
+
+.testimonios p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.testimonios form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonios form input,
+.testimonios form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1rem;
+}
+
+.testimonios form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0d2b70;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.testimonios form button:hover {
+    background-color: #1d3c84;
+}
+
+.lista-testimonios {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.testimonio {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonio p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1200px) {
+    .proposito, .ventajas, .testimonios {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 992px) {
+    header .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .slider {
+        width: 100%;
+        height: auto;
+    }
+
+    .slider .list {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .slider .list .item {
+        flex: 1 0 auto;
+    }
+
+    .slider .list img {
+        width: 100%;
+        height: auto;
+    }
+
+    .proposito, .ventajas, .testimonios {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 2rem;
+    }
+
+    .slider {
+        width: 100%;
+        height: auto;
+    }
+
+    .slider .list img {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .proposito, .ventajas, .testimonios {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .menu {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .slider {
+        width: 100%;
+        height: auto;
+    }
+
+    .slider .list {
+        flex-direction: column;
+    }
+
+    .slider .list img {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .proposito, .ventajas, .testimonios {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
