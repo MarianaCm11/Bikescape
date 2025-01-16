@@ -7,31 +7,30 @@
     transition: .2s linear;
 }
 
-.frase {
-    font-size: 25px;
-    font-weight: 500;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    text-align: center;
-    font-family: 'Comfortaa', sans-serif;
-    font-weight: 900;
-    
-}
-
 .slider {
-    width: 990px;
-    max-width: 98.9vw;
-    height: 500px;
-    margin: auto;
+    width: 100%;
+    height: 80vh;
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
 }
 
-.slider:hover {
-    transform: scale(1.03);
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sombreado negro */
+    z-index: 5;
+}
+
+.slider .buttons,
+.slider .dots {
+    z-index: 10; /* Asegurar que estén sobre el sombreado */
 }
 
 .slider .list {
@@ -45,7 +44,9 @@
 }
 
 .slider .list .item img {
-    width: 1100px;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
 .slider .list .item .info-item h1,
@@ -63,23 +64,7 @@ h3 {
 }
 
 .slider .buttons {
-    position: absolute;
-    top: 45%;
-    left: 5%;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.slider .buttons button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff5;
-    color: #fff;
-    border: none;
-    font-family: monospace;
-    font-weight: bold;
+    display: none;
 }
 
 .slider .dots {
@@ -332,6 +317,17 @@ header .menu a:hover i {
     }
 }
 
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 body {
     background: linear-gradient(180deg,
             rgba(204, 204, 204, 1) 0%,
@@ -366,6 +362,18 @@ body {
     margin-bottom: 15px;
     line-height: 1.6;
     text-align: justify;
+}
+
+.ventajas.card, .proposito.card {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ventajas.card:not(.index), .proposito.card:not(.index) {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .testimonios {
@@ -446,11 +454,30 @@ body {
     line-height: 1.4;
 }
 
+.cards {
+    margin: 25px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 1440px;
+    text-align: center;
+    margin: 10px auto;
+}
+
 /* Estilos responsivos */
 @media (max-width: 1200px) {
     .proposito, .ventajas, .testimonios {
         margin-left: 100px;
         margin-right: 100px;
+    }
+
+    .card {
+        width: 90%;
     }
 }
 
@@ -483,6 +510,10 @@ body {
         margin-left: 50px;
         margin-right: 50px;
     }
+
+    .card {
+        width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -513,6 +544,10 @@ body {
     .proposito, .ventajas, .testimonios {
         margin-left: 20px;
         margin-right: 20px;
+    }
+
+    .card {
+        width: 90%;
     }
 }
 
@@ -554,5 +589,49 @@ body {
     .proposito, .ventajas, .testimonios {
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+.animated-text {
+    /* font-size: 2.5rem;
+    color: #333;
+    display: inline-block;*/
+    white-space: nowrap; 
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 10;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.animated-text span {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+    animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

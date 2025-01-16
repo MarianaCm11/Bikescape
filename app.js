@@ -1,20 +1,12 @@
 let slider = document.querySelector('.slider .list');
 let items = document.querySelectorAll('.slider .list .item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
 let dots = document.querySelectorAll('.slider .dots li');
 
 let lengthItems = items.length - 1;
 let active = 0;
-next.onclick = function(){
-    active = active + 1 <= lengthItems ? active + 1 : 0;
-    reloadSlider();
-}
-prev.onclick = function(){
-    active = active - 1 >= 0 ? active - 1 : lengthItems;
-    reloadSlider();
-}
-let refreshInterval = setInterval(()=> {next.click()}, 4000);
+
+let refreshInterval = setInterval(()=> {active = active + 1 <= lengthItems ? active + 1 : 0; reloadSlider();}, 4000);
+
 function reloadSlider(){
     slider.style.left = -items[active].offsetLeft + 'px';
     // 
@@ -23,9 +15,7 @@ function reloadSlider(){
     dots[active].classList.add('active');
 
     clearInterval(refreshInterval);
-    refreshInterval = setInterval(()=> {next.click()}, 4000);
-
-    
+    refreshInterval = setInterval(()=> {active = active + 1 <= lengthItems ? active + 1 : 0; reloadSlider();}, 4000);
 }
 
 dots.forEach((li, key) => {
@@ -37,3 +27,9 @@ dots.forEach((li, key) => {
 window.onresize = function(event) {
     reloadSlider();
 };
+
+const letters = document.querySelectorAll(".animated-text span");
+
+letters.forEach((letter, index) => {
+    letter.style.animationDelay = (index * 0.05) + 's';
+});
